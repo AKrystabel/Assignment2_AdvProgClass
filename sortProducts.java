@@ -33,6 +33,8 @@ public class sortProducts {
         // the case is not a concern nor if it is a yes because the user input
         // is converted into lowercase for the whole thing, and only taking 
         // into account the first character (denoted with index 0)
+        // the scanner.nextLine() before the last one is to take in the \n
+        // and therefor allow the user to update the user_add_input
         do{
             Products p = new Products();
             product_creating(p);
@@ -74,9 +76,14 @@ public class sortProducts {
         }
         
         // once it breaks from the loop, it will execute the display_info method
+        // the result will be sorted by price because it is eecuted after the bubble sort
+        // it now the product_list is the list that has been sorted accordingly.
         display_info(product_list);
     }
 
+    //this is the method to creating the object. Taking in user input for the
+    // name of the product object and the price. Returns nothing as it is 
+    // referencing the object's members itself
     public static void product_creating(Products p){
         System.out.println("Enter product: ");
         String name = scanner.nextLine();
@@ -86,8 +93,10 @@ public class sortProducts {
         p.setPrice(price);
     }
     
+    // this is the display method for the array. Takes in the array and performs 
+    // a loop that will print out each product's name and price. 
     public static void display_info(ArrayList<Products> array){
-        System.out.println("This is the list");
+        System.out.println("This is the sorted list by price");
         for(Products p : array){
             String name = p.getName();
             float price = p.getPrice();
